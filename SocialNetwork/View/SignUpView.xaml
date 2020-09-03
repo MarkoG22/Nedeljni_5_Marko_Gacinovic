@@ -5,8 +5,56 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SocialNetwork.View"
         mc:Ignorable="d"
-        Title="SignUpView" Height="450" Width="800">
+        Title="SignUpView" Height="300" Width="350">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="6"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="6"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Column="1" Grid.Row="1" Name="lblFirstName" Content="First Name: " Padding="0" HorizontalAlignment="Right"/>
+        <Label Grid.Column="1" Grid.Row="3" Name="lblLastName" Content="Last Name: " Padding="0" HorizontalAlignment="Right"/>        
+        <Label Grid.Column="1" Grid.Row="5" Name="lblBirthdate" Content="Birthdate: " Padding="0" HorizontalAlignment="Right"/>        
+        <Label Grid.Column="1" Grid.Row="7" Name="lblUsername" Content="Username: " Padding="0" HorizontalAlignment="Right"/>
+        <Label Grid.Column="1" Grid.Row="9" Name="lblPassword" Content="Password: " Padding="0" HorizontalAlignment="Right"/>        
+        <TextBox Grid.Column="3" Grid.Row="1" Name="txtFirstName" Height="20" Width="150" PreviewTextInput="LettersValidationTextBox"
+                 Text="{Binding User.FirstName, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Column="3" Grid.Row="3" Name="txtLastName" Height="20" Width="150" PreviewTextInput="LettersValidationTextBox"
+                 Text="{Binding User.LastName, UpdateSourceTrigger=PropertyChanged}"/>        
+        <DatePicker Grid.Column="3" Grid.Row="5" Name="DatePicker1" Height="20" Width="150" DisplayDate="1/1/20" DisplayDateEnd="11/8/20"
+                 SelectedDate="{Binding User.Birthdate, UpdateSourceTrigger=PropertyChanged}"/>        
+        <TextBox Grid.Column="3" Grid.Row="7" Name="txtUsername" Height="20" Width="150" 
+                 Text="{Binding User.Username, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}"/>
+        <TextBox Grid.Column="3" Grid.Row="9" Name="txtUserPassword" Height="20" Width="150" 
+                 Text="{Binding User.UserPassword, UpdateSourceTrigger=PropertyChanged, TargetNullValue=''}"/>        
+        <Button Grid.Column="3" Grid.Row="15" Name="btnSave" Content="Save" Height="20" Width="70" HorizontalAlignment="Left"
+                Command="{Binding Save, UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Grid.Column="3" Grid.Row="15" Name="btnClose" Content="Close" Height="20" Width="70" HorizontalAlignment="Right"
+                Command="{Binding Close, UpdateSourceTrigger=PropertyChanged}"/>
     </Grid>
 </Window>
