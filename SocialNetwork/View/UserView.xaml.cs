@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SocialNetwork.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,7 @@ namespace SocialNetwork.View
         public UserView()
         {
             InitializeComponent();
+            this.DataContext = new UserViewModel(this);
         }
     }
 }

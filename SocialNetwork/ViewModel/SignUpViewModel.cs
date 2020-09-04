@@ -2,11 +2,7 @@
 using SocialNetwork.Model;
 using SocialNetwork.View;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -76,7 +72,7 @@ namespace SocialNetwork.ViewModel
                     else
                     {
                         MessageBox.Show("Wrong password. Password must have at least 8 characters.\n(1 upper char, 1 lower char, 1 number and 1 special char)\nPlease try again.");
-                    }                                  
+                    }
 
                     newUser.UserID = user.UserID;
 

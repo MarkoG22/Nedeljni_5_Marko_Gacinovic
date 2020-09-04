@@ -50,7 +50,7 @@ namespace SocialNetwork.ViewModel
 
         public MainWindowViewModel(MainWindow mainOpen)
         {
-            main = mainOpen;
+            main = mainOpen;            
         }
 
         #region Commands
