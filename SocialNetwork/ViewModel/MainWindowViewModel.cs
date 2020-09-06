@@ -2,10 +2,7 @@
 using SocialNetwork.Model;
 using SocialNetwork.View;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -48,6 +45,7 @@ namespace SocialNetwork.ViewModel
 
         #endregion
 
+        // constructor
         public MainWindowViewModel(MainWindow mainOpen)
         {
             main = mainOpen;            
@@ -123,6 +121,7 @@ namespace SocialNetwork.ViewModel
             return true;
         }
 
+        // command for user registration
         private ICommand signUp;
         public ICommand SignUp
         {
@@ -141,6 +140,9 @@ namespace SocialNetwork.ViewModel
             return true;
         }
 
+        /// <summary>
+        /// method for opening the window for the registration
+        /// </summary>
         private void SignUpExecute()
         {
             SignUpView signUpView = new SignUpView();
@@ -148,6 +150,14 @@ namespace SocialNetwork.ViewModel
         }
         #endregion
 
+        #region Methods
+
+        /// <summary>
+        /// method for checking if the user with entered username and password exists
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         private bool IsUser(string username, string password)
         {
             try
@@ -164,5 +174,7 @@ namespace SocialNetwork.ViewModel
                 return false;
             }
         }
+
+        #endregion
     }
 }

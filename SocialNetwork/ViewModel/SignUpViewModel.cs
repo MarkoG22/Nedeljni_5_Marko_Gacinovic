@@ -12,6 +12,7 @@ namespace SocialNetwork.ViewModel
     {
         SignUpView signUp;
 
+        #region Properties
         private tblUser user;
         public tblUser User
         {
@@ -19,12 +20,17 @@ namespace SocialNetwork.ViewModel
             set { user = value; OnPropertyChanged("User"); }
         }
 
+        #endregion
+
+        // constructor
         public SignUpViewModel(SignUpView signUpOpen)
         {
             signUp = signUpOpen;
             user = new tblUser();
         }
 
+
+        #region Commands
         private ICommand save;
         public ICommand Save
         {
@@ -38,6 +44,10 @@ namespace SocialNetwork.ViewModel
             }
         }
 
+        /// <summary>
+        /// method for enabling Save button
+        /// </summary>
+        /// <returns></returns>
         private bool CanSaveExecute()
         {
             if (String.IsNullOrEmpty(user.FirstName) || String.IsNullOrEmpty(user.LastName)
@@ -51,6 +61,9 @@ namespace SocialNetwork.ViewModel
             }
         }
 
+        /// <summary>
+        /// method for adding new user 
+        /// </summary>
         private void SaveExecute()
         {
             try
@@ -63,7 +76,7 @@ namespace SocialNetwork.ViewModel
                     newUser.LastName = user.LastName;
                     newUser.BirthDate = user.BirthDate;                    
 
-                    newUser.Username = user.Username; // jedinstven username ! ! !
+                    newUser.Username = user.Username; 
 
                     if (PasswordValidation(user.UserPassword))
                     {
@@ -123,6 +136,15 @@ namespace SocialNetwork.ViewModel
             return true;
         }
 
+        #endregion
+
+        #region Methods
+
+        /// <summary>
+        /// method for the password validation
+        /// </summary>
+        /// <param name="password"></param>
+        /// <returns></returns>
         private bool PasswordValidation(string password)
         {
             Regex regex = new Regex(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,15}$");
@@ -138,5 +160,6 @@ namespace SocialNetwork.ViewModel
                 return false;
             }
         }
+        #endregion
     }
 }
